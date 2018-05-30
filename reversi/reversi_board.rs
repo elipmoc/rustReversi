@@ -14,7 +14,7 @@ pub enum StoneState{
 impl ToString for StoneState{
     fn to_string(&self)->String{
         match self{
-            StoneState::Empty=>"e",
+            StoneState::Empty=>" ",
             StoneState::Black=>"×",
             StoneState::White=>"○"
         }.to_string()
@@ -28,10 +28,12 @@ pub struct ReversiBoard{
 
 impl ToString for ReversiBoard{
     fn to_string(&self)->String{
-        let mut buf="".to_string();
-        for row in &self.board.board{
+        let mut buf="  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 |\n".to_string();
+        for (index,row) in self.board.board.iter().enumerate(){
+            buf+="――――――――――――――――――――――――――――――――――\n";
+            buf+=&(index.to_string()+" | ");
             for value in row{
-                buf+=&value.to_string();
+                buf+=&(value.to_string()+" | ");
             }
             buf+="\n";
         }
