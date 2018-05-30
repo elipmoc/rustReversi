@@ -23,4 +23,8 @@ impl<T:Clone> Board<T>{
         new_board[y][x]=value;
         Board::<T>{board:new_board}
     }
+
+    pub fn get(&self,x:usize,y:usize)->T{
+        self.board[y][x].clone()
+    }
 }

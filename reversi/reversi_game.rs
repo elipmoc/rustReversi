@@ -59,5 +59,3 @@ fn turn(reversi_board:ReversiBoard,player:PlayerType){
         }
     };
 }
-
-//微妙に動かない・・・・・・
