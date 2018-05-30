@@ -1,0 +1,10 @@
+[package]
+name = "rustReversi"
+version = "0.1.0"
+authors = ["パン粉 ライ麦 <relipmoc101@gmail.com>"]
+
+[lib]
+name="reversi"
+path="reversi/lib.rs"
+
+[dependencies]
