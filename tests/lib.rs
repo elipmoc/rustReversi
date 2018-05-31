@@ -1,5 +1,6 @@
 extern crate reversi;
 use reversi::reversi_board::ReversiBoard;
+use reversi::reversi_board::StoneCount;
 
 #[test]
 fn show_test() {
@@ -24,4 +25,14 @@ fn show_test() {
 7 |   |   |   |   |   |   |   |   | \n");
 }
 
-
+#[test]
+fn count_stone_test() {
+    let hoge = ReversiBoard::new();
+    assert_eq!(
+        hoge.get_total(),
+        StoneCount {
+            blackCount: 2,
+            whiteCount: 2
+        }
+    );
+}
