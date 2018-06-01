@@ -38,8 +38,8 @@ impl ToString for StoneState {
     fn to_string(&self) -> String {
         match self {
             StoneState::Empty => " ",
-            StoneState::Black => "×",
-            StoneState::White => "○",
+            StoneState::Black => "x",
+            StoneState::White => "o",
         }.to_string()
     }
 }
