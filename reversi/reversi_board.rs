@@ -94,6 +94,22 @@ impl ReversiBoard {
         count
     }
 
+    //どこかに置けるかどうかを判定する
+    pub fn can_put_any(&self, value: &StoneState) -> bool {
+        self.board.board.iter().enumerate().any(|(y, row)| {
+            row.iter()
+                .enumerate()
+                .any(|(x, _)| self.can_put(x, y, value.clone()))
+        })
+    }
+
+    //石を置けるかどうかを判定する
+    fn can_put(&self, x: usize, y: usize, value: StoneState) -> bool {
+        //ひっくり返す石の場所リスト
+        let reverse_list = self.search(x, y, &value);
+        (reverse_list.len() != 0 && self.board.get(x, y) == StoneState::Empty)
+    }
+
     //石を置く
     //置けないとこに置こうとしたり、Emptyを置こうとしたらErrを返す
     pub fn put(&self, x: usize, y: usize, value: StoneState) -> Result<ReversiBoard, &str> {
